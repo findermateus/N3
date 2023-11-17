@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Mateu\\Desktop\\facul\\OO\\Emissao_Fatura_N3\\Emissao_Fatura_N3.csproj": {}
+    "C:\\Users\\Mateu\\Desktop\\facul\\OO\\N3\\Emissao_Fatura_N3\\Emissao_Fatura_N3.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Mateu\\Desktop\\facul\\OO\\Emissao_Fatura_N3\\Emissao_Fatura_N3.csproj": {
+    "C:\\Users\\Mateu\\Desktop\\facul\\OO\\N3\\Emissao_Fatura_N3\\Emissao_Fatura_N3.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Mateu\\Desktop\\facul\\OO\\Emissao_Fatura_N3\\Emissao_Fatura_N3.csproj",
+        "projectUniqueName": "C:\\Users\\Mateu\\Desktop\\facul\\OO\\N3\\Emissao_Fatura_N3\\Emissao_Fatura_N3.csproj",
         "projectName": "Emissao_Fatura_N3",
-        "projectPath": "C:\\Users\\Mateu\\Desktop\\facul\\OO\\Emissao_Fatura_N3\\Emissao_Fatura_N3.csproj",
+        "projectPath": "C:\\Users\\Mateu\\Desktop\\facul\\OO\\N3\\Emissao_Fatura_N3\\Emissao_Fatura_N3.csproj",
         "packagesPath": "C:\\Users\\Mateu\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Mateu\\Desktop\\facul\\OO\\Emissao_Fatura_N3\\obj\\",
+        "outputPath": "C:\\Users\\Mateu\\Desktop\\facul\\OO\\N3\\Emissao_Fatura_N3\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Mateu\\AppData\\Roaming\\NuGet\\NuGet.Config",

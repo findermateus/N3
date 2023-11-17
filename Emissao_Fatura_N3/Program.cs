@@ -110,7 +110,7 @@ while (true)
             Console.Clear();
             break;
         //ADICIONAR PRESTADOR
-        case "2":
+        case "3":
             Console.Clear();
             Console.WriteLine("[1] - Adicionar servico contratado a cliente");
             op = Console.ReadLine();
