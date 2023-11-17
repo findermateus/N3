@@ -10,16 +10,6 @@ namespace Emissao_Fatura_N3
     {
         protected List<Servico> Servicos = new List<Servico>();
        // protected List<Fatura> Faturas = new List<Fatura>();
-       /* public void AddFatura(Fatura fatura)
-        {
-            Faturas.Add(fatura);
-        }
-        public void ConsutaFatura(List<Fatura> faturas) 
-        {
-            foreach (Fatura fatura in faturas)
-            {
-                faturas.Add(fatura);
-            }
-        }*/
+        public List<Servico> servicos { get => this.Servicos; }
     }
 }

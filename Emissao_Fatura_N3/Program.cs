@@ -127,14 +127,80 @@ while (true)
                     
                     op = Console.ReadLine();
                     int i = Convert.ToInt32(op);
-            
-                     Console.Clear();
-                     Console.WriteLine(ServicoDesc.descricao[i-1]);
-                     Console.WriteLine("Valor total: " + ServicoDesc.valor[i-1]);
-                     Console.WriteLine("Porcentagem do ICMS: " + ServicoDesc.icms[i-1] +"%");
-                     Console.ReadKey();
-                     Console.Clear();
-            
+                    if (i >= 1 && i <= 5)
+                    {
+                        Console.Clear();
+                        Console.WriteLine(ServicoDesc.descricao[i - 1]);
+                        Console.WriteLine("Valor total: " + ServicoDesc.valor[i - 1]);
+                        Console.WriteLine("Porcentagem do ICMS: " + ServicoDesc.icms[i - 1] + "%");
+
+                        Console.WriteLine("-----------------------------");
+                        Console.WriteLine("Confirma: [1] Sim - [2] Nao");
+                        op = Console.ReadLine();
+                        if (op == "1")
+                        {
+                            Servico servico = new Servico(i);
+                            rodando = true;
+                            while(rodando)
+                            {
+                                Console.Clear();
+                                Console.WriteLine("[1] Cliente pessoa fisica");
+                                Console.WriteLine("[2] Cliente pessoa juridica");
+                                op = Console.ReadLine();
+                                var achou = false;
+                                Console.WriteLine("Digite o nome ou codigo de identificacao do cliente:");
+                                var conferencia = Console.ReadLine();
+                                conferencia = conferencia.ToUpper();
+                                if (op == "1")
+                                {
+                                    foreach(ClienteFisico cliente in sistema.clientesFisicos)
+                                    {
+                                        if (conferencia == cliente.nome.ToUpper() || conferencia == cliente.codigoIdentificador.ToUpper())
+                                        {
+                                            achou = true;
+                                            cliente.servicos.Add(servico);
+                                            break;
+                                        }
+                                    }
+                                }else if(op == "2")
+                                {
+                                    foreach (ClienteJuridico cliente in sistema.clientesJuridicos)
+                                    {
+                                        if (conferencia == cliente.nome || conferencia == cliente.codigoIdentificador)
+                                        {
+                                            achou = true;
+                                            cliente.servicos.Add(servico);
+                                            break;
+                                        }
+                                    }
+                                }
+                                else { Console.WriteLine("Digite uma opcao valida!");
+                                    Console.ReadKey();
+                                }
+                                if (!achou)
+                                {
+                                    Console.WriteLine("Cliente nao encontrado!");
+                                    Console.ReadKey();
+                                    Console.Clear();
+                                    break;
+                                }
+                                else
+                                {
+                                    Console.WriteLine("Servico adicionado com sucesso!");
+                                    Console.ReadKey();
+                                    Console.Clear();
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                    else 
+                    { 
+                        Console.Clear();
+                        Console.Write("Digite uma opcao valida!");
+                        Console.ReadKey();
+                        Console.Clear();
+                    }
                     break;    
             }
             break;
