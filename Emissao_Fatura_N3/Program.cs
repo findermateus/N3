@@ -118,21 +118,24 @@ while (true)
             {
                 case "1":
                     Console.Clear();
-                    Console.WriteLine("[1] Servico de Internet");
-                    op = Console.ReadLine();
-                    switch (op)
+                    int indice = 0;
+                    foreach(string tipo in ServicoDesc.tipos)
                     {
-                        case "1":
-                            int i = Convert.ToInt32(op);
-                            Console.Clear();
-                            Console.WriteLine(ServicoDesc.descricao[i-1]);
-                            Console.WriteLine("Valor total: " + ServicoDesc.valor[i-1]);
-                            Console.WriteLine("Porcentagem do ICMS: " + ServicoDesc.icms[i-1] +"%");
-                            Console.ReadKey();
-                            Console.Clear();
-                            break;
+                        Console.WriteLine("["+Convert.ToString(indice+1)+"]" + ServicoDesc.tipos[indice]);
+                        indice++;
                     }
-                    break;
+                    
+                    op = Console.ReadLine();
+                    int i = Convert.ToInt32(op);
+            
+                     Console.Clear();
+                     Console.WriteLine(ServicoDesc.descricao[i-1]);
+                     Console.WriteLine("Valor total: " + ServicoDesc.valor[i-1]);
+                     Console.WriteLine("Porcentagem do ICMS: " + ServicoDesc.icms[i-1] +"%");
+                     Console.ReadKey();
+                     Console.Clear();
+            
+                    break;    
             }
             break;
     
