@@ -49,7 +49,7 @@ while (true)
                     Console.Write("Complemento: ");
                     var complemento = Console.ReadLine();
                     
-                    //CHEGA SE É PESSOA FISICA
+                    //CHECA SE É PESSOA FISICA
                     
                     if (op == "1")
                     {
@@ -64,7 +64,7 @@ while (true)
                                 
                             Endereco endereco = new Endereco(estado, cidade, cep, complemento);
                             ClienteFisico clienteFisico = new ClienteFisico(cpf, telefone, endereco, codigoIdentificador, nome);
-                            sistema.AddClienteFisico(clienteFisico);
+                            sistema.clientesFisicos.Add(clienteFisico);
                             Console.ReadKey();
                             Console.Clear();
                             Console.WriteLine("Cliente Adicionado com sucesso!");
@@ -86,8 +86,8 @@ while (true)
                                 Console.WriteLine(codigoIdentificador);
                              
                             Endereco endereco = new Endereco(estado, cidade, cep, complemento);
-                            ClienteJuridico clienteJuridico = new ClienteJuridico(cnpj, cep, endereco, codigoIdentificador, nome);
-                            sistema.AddClienteJuridico(clienteJuridico);
+                            ClienteJuridico clienteJuridico = new ClienteJuridico(cnpj, telefone, endereco, codigoIdentificador, nome);
+                            sistema.clientesJuridicos.Add(clienteJuridico);
                             Console.ReadLine();
                             Console.Clear();
                             Console.WriteLine("Cliente Adicionado com sucesso!");
@@ -166,7 +166,7 @@ while (true)
                                 {
                                     foreach (ClienteJuridico cliente in sistema.clientesJuridicos)
                                     {
-                                        if (conferencia == cliente.nome || conferencia == cliente.codigoIdentificador)
+                                        if (conferencia == cliente.nome.ToUpper() || conferencia == cliente.codigoIdentificador.ToUpper())
                                         {
                                             achou = true;
                                             cliente.servicos.Add(servico);

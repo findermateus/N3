@@ -18,13 +18,5 @@ namespace Emissao_Fatura_N3.Sistema
         public List<ClienteFisico> clientesFisicos { get => this.ClientesFisicos; }
         public List<ClienteJuridico> clientesJuridicos { get => this.ClientesJuridicos; }
 
-        public void AddClienteFisico(ClienteFisico cliente)
-        {
-            ClientesFisicos.Add(cliente);
-        }
-        public void AddClienteJuridico(ClienteJuridico cliente)
-        {
-            ClientesJuridicos.Add(cliente);
-        }
     }
 }
