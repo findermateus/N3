@@ -8,8 +8,8 @@ while (true)
 {
     Console.WriteLine("Selecione a opcao desejada: ");
     Console.WriteLine("[1] Adicionar cliente. ");
-    Console.WriteLine("[2] Adicionar prestador. ");
-    Console.WriteLine("[3] Movimentacoes. ");
+    Console.WriteLine("[2] Movimentacoes. ");
+    Console.WriteLine("[3] Emitir fatura. ");
     
     var op = Console.ReadLine();
 
@@ -109,8 +109,8 @@ while (true)
             }
             Console.Clear();
             break;
-        //ADICIONAR PRESTADOR
-        case "3":
+        //movimentacoes
+        case "2":
             Console.Clear();
             Console.WriteLine("[1] - Adicionar servico contratado a cliente");
             op = Console.ReadLine();
@@ -203,6 +203,83 @@ while (true)
                     }
                     break;    
             }
+            break;
+        case "3":
+            Console.Clear();
+            Console.WriteLine("[1] Cliente pessoa fisica");
+            Console.WriteLine("[2] Cliente pessoa juridica");
+            Console.WriteLine("[3] Sair");
+            op = Console.ReadLine();
+            var rodar = true;
+            while (rodar) {
+                Console.Write("\nDigite o nome ou codigo identificador do cliente: ");
+                var id = Console.ReadLine();
+                var achou = false;
+                Fatura fatura = new Fatura();
+                List<Servico> servicos = new List<Servico>();
+                List<string> dados = new List<string>();
+                //string cep, rua, comp, cidade, estado;
+                switch (op)
+                {
+                    case "1":
+                        
+                        foreach(ClienteFisico cliente in sistema.clientesFisicos)
+                        {
+                            if (cliente.nome == id || cliente.codigoIdentificador == id)
+                            {
+                                dados.Add(cliente.nome);
+                                dados.Add(cliente.cpf);
+                                dados.Add(cliente.codigoIdentificador);
+                                foreach(Servico servico in cliente.servicos)
+                                {
+                                    servicos.Add(servico);
+                                }
+                                achou = true;
+                            }
+                            
+                        }
+                        break;
+                    case "2":
+                        foreach (ClienteFisico cliente in sistema.clientesFisicos)
+                        {
+                            if (cliente.nome == id || cliente.codigoIdentificador == id)
+                            {
+                                dados.Add(cliente.nome);
+                                dados.Add(cliente.cpf);
+                                dados.Add(cliente.codigoIdentificador);
+                                
+                                achou = true;
+                            }
+
+                        }
+
+                        break;
+                    case "3":
+                        rodar = false;
+                        Console.Clear();
+                        break;
+                    default:
+                        Console.WriteLine("Digite uma opcao valida!");
+                        Console.ReadKey();
+                    break;
+                }
+                if (!achou)
+                {
+                    Console.WriteLine("Cliente nao encontrado!");
+                    Console.ReadKey();
+                    Console.Clear();
+                    break;
+                }
+                fatura.AddDados(dados);
+                
+                Console.Clear();
+                fatura.EmitirFatura(servicos);
+                Console.WriteLine("Valor total: R$"+fatura.CalcutaTotal(servicos));
+                Console.ReadKey();
+                Console.Clear();
+                break;
+            }
+
             break;
     
     }

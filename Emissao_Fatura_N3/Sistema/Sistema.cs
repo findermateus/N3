@@ -17,6 +17,5 @@ namespace Emissao_Fatura_N3.Sistema
         public List<Servico> servicos { get => this.Servicos; }
         public List<ClienteFisico> clientesFisicos { get => this.ClientesFisicos; }
         public List<ClienteJuridico> clientesJuridicos { get => this.ClientesJuridicos; }
-
     }
 }

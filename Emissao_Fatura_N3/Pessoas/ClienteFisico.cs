@@ -17,6 +17,8 @@ namespace Emissao_Fatura_N3
             this.Endereco = endereco;
             this.Nome = nome;
             this.CodigoIdentificador = codigoIdentificador;
+            
+            
         }
         public string cpf {get => this.Cpf;}
         public string codigoIdentificador { get => this.CodigoIdentificador; }
