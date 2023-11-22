@@ -124,7 +124,7 @@ while (true)
                         Console.WriteLine("["+Convert.ToString(indice+1)+"]" + ServicoDesc.tipos[indice]);
                         indice++;
                     }
-                    
+                    Console.WriteLine("["+(indice+1)+"] Sair");
                     op = Console.ReadLine();
                     int i = Convert.ToInt32(op);
                     if (i >= 1 && i <= 5)
@@ -196,9 +196,7 @@ while (true)
                     }
                     else 
                     { 
-                        Console.Clear();
-                        Console.Write("Digite uma opcao valida!");
-                        Console.ReadKey();
+                        
                         Console.Clear();
                     }
                     break;    
@@ -247,7 +245,10 @@ while (true)
                                 dados.Add(cliente.nome);
                                 dados.Add(cliente.cnpj);
                                 dados.Add(cliente.codigoIdentificador);
-                                
+                                foreach (Servico servico in cliente.servicos)
+                                {
+                                    servicos.Add(servico);
+                                }
                                 achou = true;
                             }
 
