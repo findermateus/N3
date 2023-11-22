@@ -1,0 +1,28 @@
+D:\Dev Projects\C#Console\Anotacoes\bin\Debug\net7.0\Anotacoes.exe
+D:\Dev Projects\C#Console\Anotacoes\bin\Debug\net7.0\Anotacoes.deps.json
+D:\Dev Projects\C#Console\Anotacoes\bin\Debug\net7.0\Anotacoes.runtimeconfig.json
+D:\Dev Projects\C#Console\Anotacoes\bin\Debug\net7.0\Anotacoes.dll
+D:\Dev Projects\C#Console\Anotacoes\bin\Debug\net7.0\Anotacoes.pdb
+D:\Dev Projects\C#Console\Anotacoes\obj\Debug\net7.0\Anotacoes.GeneratedMSBuildEditorConfig.editorconfig
+D:\Dev Projects\C#Console\Anotacoes\obj\Debug\net7.0\Anotacoes.AssemblyInfoInputs.cache
+D:\Dev Projects\C#Console\Anotacoes\obj\Debug\net7.0\Anotacoes.AssemblyInfo.cs
+D:\Dev Projects\C#Console\Anotacoes\obj\Debug\net7.0\Anotacoes.csproj.CoreCompileInputs.cache
+D:\Dev Projects\C#Console\Anotacoes\obj\Debug\net7.0\Anotacoes.dll
+D:\Dev Projects\C#Console\Anotacoes\obj\Debug\net7.0\refint\Anotacoes.dll
+D:\Dev Projects\C#Console\Anotacoes\obj\Debug\net7.0\Anotacoes.pdb
+D:\Dev Projects\C#Console\Anotacoes\obj\Debug\net7.0\Anotacoes.genruntimeconfig.cache
+D:\Dev Projects\C#Console\Anotacoes\obj\Debug\net7.0\ref\Anotacoes.dll
+C:\Users\mateus.finder\Desktop\pessoal\faculdade\programa_teste\Anotacoes\Anotacoes\bin\Debug\net7.0\Anotacoes.exe
+C:\Users\mateus.finder\Desktop\pessoal\faculdade\programa_teste\Anotacoes\Anotacoes\bin\Debug\net7.0\Anotacoes.deps.json
+C:\Users\mateus.finder\Desktop\pessoal\faculdade\programa_teste\Anotacoes\Anotacoes\bin\Debug\net7.0\Anotacoes.runtimeconfig.json
+C:\Users\mateus.finder\Desktop\pessoal\faculdade\programa_teste\Anotacoes\Anotacoes\bin\Debug\net7.0\Anotacoes.dll
+C:\Users\mateus.finder\Desktop\pessoal\faculdade\programa_teste\Anotacoes\Anotacoes\bin\Debug\net7.0\Anotacoes.pdb
+C:\Users\mateus.finder\Desktop\pessoal\faculdade\programa_teste\Anotacoes\Anotacoes\obj\Debug\net7.0\Anotacoes.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\mateus.finder\Desktop\pessoal\faculdade\programa_teste\Anotacoes\Anotacoes\obj\Debug\net7.0\Anotacoes.AssemblyInfoInputs.cache
+C:\Users\mateus.finder\Desktop\pessoal\faculdade\programa_teste\Anotacoes\Anotacoes\obj\Debug\net7.0\Anotacoes.AssemblyInfo.cs
+C:\Users\mateus.finder\Desktop\pessoal\faculdade\programa_teste\Anotacoes\Anotacoes\obj\Debug\net7.0\Anotacoes.csproj.CoreCompileInputs.cache
+C:\Users\mateus.finder\Desktop\pessoal\faculdade\programa_teste\Anotacoes\Anotacoes\obj\Debug\net7.0\Anotacoes.dll
+C:\Users\mateus.finder\Desktop\pessoal\faculdade\programa_teste\Anotacoes\Anotacoes\obj\Debug\net7.0\refint\Anotacoes.dll
+C:\Users\mateus.finder\Desktop\pessoal\faculdade\programa_teste\Anotacoes\Anotacoes\obj\Debug\net7.0\Anotacoes.pdb
+C:\Users\mateus.finder\Desktop\pessoal\faculdade\programa_teste\Anotacoes\Anotacoes\obj\Debug\net7.0\Anotacoes.genruntimeconfig.cache
+C:\Users\mateus.finder\Desktop\pessoal\faculdade\programa_teste\Anotacoes\Anotacoes\obj\Debug\net7.0\ref\Anotacoes.dll

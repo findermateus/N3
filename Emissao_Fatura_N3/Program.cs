@@ -10,9 +10,7 @@ while (true)
     Console.WriteLine("[1] Adicionar cliente. ");
     Console.WriteLine("[2] Movimentacoes. ");
     Console.WriteLine("[3] Emitir fatura. ");
-    
     var op = Console.ReadLine();
-
     switch (op)
     {
         //ADICIONAR CLIENTE
@@ -25,6 +23,8 @@ while (true)
                 Console.WriteLine("[1] Cliente pessoa fisica");
                 Console.WriteLine("[2] Cliente pessoa juridica");
                 Console.WriteLine("[3] Sair");
+        
+
 
                 op = Console.ReadLine();
                 if (op == "1" || op == "2")
@@ -251,9 +251,7 @@ while (true)
                                 }
                                 achou = true;
                             }
-
                         }
-
                         break;
                     case "3":
                         rodar = false;
@@ -272,15 +270,14 @@ while (true)
                     break;
                 }
                 fatura.AddDados(dados);
-                
                 Console.Clear();
                 fatura.EmitirFatura(servicos);
                 Console.WriteLine("Valor total: R$"+fatura.CalcutaTotal(servicos));
                 Console.ReadKey();
                 Console.Clear();
+                
                 break;
             }
-
             break;
     
     }
