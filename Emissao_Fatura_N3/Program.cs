@@ -240,12 +240,12 @@ while (true)
                         }
                         break;
                     case "2":
-                        foreach (ClienteFisico cliente in sistema.clientesFisicos)
+                        foreach (ClienteJuridico cliente in sistema.clientesJuridicos)
                         {
                             if (cliente.nome == id || cliente.codigoIdentificador == id)
                             {
                                 dados.Add(cliente.nome);
-                                dados.Add(cliente.cpf);
+                                dados.Add(cliente.cnpj);
                                 dados.Add(cliente.codigoIdentificador);
                                 
                                 achou = true;
