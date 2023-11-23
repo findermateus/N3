@@ -1,6 +1,7 @@
 ﻿using Emissao_Fatura_N3;
 using Emissao_Fatura_N3.Pessoas;
 using Emissao_Fatura_N3.Sistema;
+using System.Security.Cryptography;
 
 Sistema sistema = new Sistema();
 List<string> menu = new List<string>();
@@ -50,7 +51,7 @@ while (true)
                     dados.Add("Rua: ");
                     dados.Add("Complemento: ");
                     
-                    Tela.DesenhaBorda(0,0,79,24,"Cliente");
+                    Tela.DesenhaBorda(0,0,79,24,"Dados do Cliente");
                     CRUD.EscreveMenu(dados,1,1);
 
                     //PEGO OS DADOS
@@ -79,18 +80,18 @@ while (true)
                     Console.SetCursorPosition(dados[i].Length + 1, i + 1);
                     var complemento = Console.ReadLine();
                     //CHECA SE É PESSOA FISICA
-
+                    var pos = 2;
                     if (op == "1")
                     {
-                        Console.SetCursorPosition(1, i + 2);
+                        Console.SetCursorPosition(1, i + pos); pos++;
                         Console.Write("CPF: "); var cpf = Console.ReadLine();
-                        
-                        dados.Add("Confirma: [1] Sim - [2] Nao");
-                        
+                        Console.SetCursorPosition(1, i + pos); pos++;
+                        Console.Write("Confirma: [1] Sim - [2] Nao: ");
                         op = Console.ReadLine();
                         if (op == "1")
                         {
                                 var codigoIdentificador = Guid.NewGuid().ToString();
+                                Console.SetCursorPosition(1, i + pos); pos++;
                                 Console.Write("Codigo identificador do cliente: ");
                                 Console.WriteLine(codigoIdentificador);
                                 
@@ -98,7 +99,7 @@ while (true)
                             ClienteFisico clienteFisico = new ClienteFisico(cpf, telefone, endereco, codigoIdentificador, nome);
                             sistema.clientesFisicos.Add(clienteFisico);
                             Console.ReadKey();
-                            Console.Clear();
+                            Console.SetCursorPosition(1, i + pos); pos++;
                             Console.WriteLine("Cliente Adicionado com sucesso!");
                             Console.ReadKey();
                             rodando = false;
@@ -107,21 +108,23 @@ while (true)
                     else
                     {
                         //PESSOA JURIDICA
-                        Console.SetCursorPosition(1, i + 2);
+                        Console.SetCursorPosition(1, i + pos); pos++;
                         Console.Write("CNPJ: "); var cnpj = Console.ReadLine();
-                        Console.WriteLine("Confirma: [1] Sim - [2] Nao");
+                        Console.SetCursorPosition(1, i + pos); pos++;
+                        Console.Write("Confirma: [1] Sim - [2] Nao: ");
                         op = Console.ReadLine();
                         if (op == "1")
                         {
                             var codigoIdentificador = Guid.NewGuid().ToString();
-                                Console.Write("Codigo identificador do cliente: ");
-                                Console.WriteLine(codigoIdentificador);
+                            Console.SetCursorPosition(1, i + pos); pos++;
+                            Console.Write("Codigo identificador do cliente: ");
+                            Console.WriteLine(codigoIdentificador);
                              
                             Endereco endereco = new Endereco(estado, cidade, cep, complemento);
                             ClienteJuridico clienteJuridico = new ClienteJuridico(cnpj, telefone, endereco, codigoIdentificador, nome);
                             sistema.clientesJuridicos.Add(clienteJuridico);
                             Console.ReadLine();
-                            Console.Clear();
+                            Console.SetCursorPosition(1, i + pos); pos++;
                             Console.WriteLine("Cliente Adicionado com sucesso!");
                             Console.ReadKey();
                             rodando = false;

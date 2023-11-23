@@ -55,3 +55,17 @@ C:\Users\mateus.finder\Documents\OO\N3\Emissao_Fatura_N3\obj\Debug\net7.0\refint
 C:\Users\mateus.finder\Documents\OO\N3\Emissao_Fatura_N3\obj\Debug\net7.0\Emissao_Fatura_N3.pdb
 C:\Users\mateus.finder\Documents\OO\N3\Emissao_Fatura_N3\obj\Debug\net7.0\Emissao_Fatura_N3.genruntimeconfig.cache
 C:\Users\mateus.finder\Documents\OO\N3\Emissao_Fatura_N3\obj\Debug\net7.0\ref\Emissao_Fatura_N3.dll
+C:\Users\Mateu\Desktop\facul\N3\Emissao_Fatura_N3\bin\Debug\net7.0\Emissao_Fatura_N3.exe
+C:\Users\Mateu\Desktop\facul\N3\Emissao_Fatura_N3\bin\Debug\net7.0\Emissao_Fatura_N3.deps.json
+C:\Users\Mateu\Desktop\facul\N3\Emissao_Fatura_N3\bin\Debug\net7.0\Emissao_Fatura_N3.runtimeconfig.json
+C:\Users\Mateu\Desktop\facul\N3\Emissao_Fatura_N3\bin\Debug\net7.0\Emissao_Fatura_N3.dll
+C:\Users\Mateu\Desktop\facul\N3\Emissao_Fatura_N3\bin\Debug\net7.0\Emissao_Fatura_N3.pdb
+C:\Users\Mateu\Desktop\facul\N3\Emissao_Fatura_N3\obj\Debug\net7.0\Emissao_Fatura_N3.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Mateu\Desktop\facul\N3\Emissao_Fatura_N3\obj\Debug\net7.0\Emissao_Fatura_N3.AssemblyInfoInputs.cache
+C:\Users\Mateu\Desktop\facul\N3\Emissao_Fatura_N3\obj\Debug\net7.0\Emissao_Fatura_N3.AssemblyInfo.cs
+C:\Users\Mateu\Desktop\facul\N3\Emissao_Fatura_N3\obj\Debug\net7.0\Emissao_Fatura_N3.csproj.CoreCompileInputs.cache
+C:\Users\Mateu\Desktop\facul\N3\Emissao_Fatura_N3\obj\Debug\net7.0\Emissao_Fatura_N3.dll
+C:\Users\Mateu\Desktop\facul\N3\Emissao_Fatura_N3\obj\Debug\net7.0\refint\Emissao_Fatura_N3.dll
+C:\Users\Mateu\Desktop\facul\N3\Emissao_Fatura_N3\obj\Debug\net7.0\Emissao_Fatura_N3.pdb
+C:\Users\Mateu\Desktop\facul\N3\Emissao_Fatura_N3\obj\Debug\net7.0\Emissao_Fatura_N3.genruntimeconfig.cache
+C:\Users\Mateu\Desktop\facul\N3\Emissao_Fatura_N3\obj\Debug\net7.0\ref\Emissao_Fatura_N3.dll
