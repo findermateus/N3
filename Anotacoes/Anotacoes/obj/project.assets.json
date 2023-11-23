@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\mateus.finder\\Desktop\\pessoal\\faculdade\\programa_teste\\Anotacoes\\Anotacoes\\Anotacoes.csproj",
+      "projectUniqueName": "C:\\Users\\mateus.finder\\Documents\\OO\\N3\\Anotacoes\\Anotacoes\\Anotacoes.csproj",
       "projectName": "Anotacoes",
-      "projectPath": "C:\\Users\\mateus.finder\\Desktop\\pessoal\\faculdade\\programa_teste\\Anotacoes\\Anotacoes\\Anotacoes.csproj",
+      "projectPath": "C:\\Users\\mateus.finder\\Documents\\OO\\N3\\Anotacoes\\Anotacoes\\Anotacoes.csproj",
       "packagesPath": "C:\\Users\\mateus.finder\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\mateus.finder\\Desktop\\pessoal\\faculdade\\programa_teste\\Anotacoes\\Anotacoes\\obj\\",
+      "outputPath": "C:\\Users\\mateus.finder\\Documents\\OO\\N3\\Anotacoes\\Anotacoes\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\mateus.finder\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -3,13 +3,18 @@ using Emissao_Fatura_N3.Pessoas;
 using Emissao_Fatura_N3.Sistema;
 
 Sistema sistema = new Sistema();
+List<string> menu = new List<string>();
+menu.Add("[1] Adicionar cliente. ");
+menu.Add("[2] Movimentacoes. ");
+menu.Add("[3] Emitir fatura. ");
+menu.Add("Opcao: ");
+
+
 
 while (true)
 {
-    Console.WriteLine("Selecione a opcao desejada: ");
-    Console.WriteLine("[1] Adicionar cliente. ");
-    Console.WriteLine("[2] Movimentacoes. ");
-    Console.WriteLine("[3] Emitir fatura. ");
+    int posy = 1;   
+    CRUD.EscreveMenuOp(menu, posy,"Fatura");
     var op = Console.ReadLine();
     switch (op)
     {
@@ -19,13 +24,13 @@ while (true)
             var rodando = true;
             while (rodando)
             {
-                Console.Clear();
-                Console.WriteLine("[1] Cliente pessoa fisica");
-                Console.WriteLine("[2] Cliente pessoa juridica");
-                Console.WriteLine("[3] Sair");
-        
-
-
+                List<string> opcoes = new List<string>();
+                opcoes.Add("[1] Cliente pessoa fisica  ");
+                opcoes.Add("[2] Cliente pessoa juridica");
+                opcoes.Add("[3] Sair                   ");
+                opcoes.Add("Opcao: ");
+                CRUD.EscreveMenuOp(opcoes, posy,"Cliente");
+               
                 op = Console.ReadLine();
                 if (op == "1" || op == "2")
                 {
