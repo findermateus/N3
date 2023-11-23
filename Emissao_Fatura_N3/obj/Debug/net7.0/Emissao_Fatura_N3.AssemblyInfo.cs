@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Emissao_Fatura_N3")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e7963a9527843846e5bd0f60521a301b90bec61d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+879ec3ace5340ccd49c976d5eba126012c4308c2")]
 [assembly: System.Reflection.AssemblyProductAttribute("Emissao_Fatura_N3")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Emissao_Fatura_N3")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

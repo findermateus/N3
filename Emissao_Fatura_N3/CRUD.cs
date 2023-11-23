@@ -19,7 +19,16 @@ namespace Emissao_Fatura_N3
                 Console.SetCursorPosition(1, posy + i);
             }
 
-            Console.SetCursorPosition(menu[menu.Count - 1].Length, menu.Count);
+            Console.SetCursorPosition(menu[menu.Count - 1].Length+1, menu.Count);
+        }
+        public static void EscreveMenu(List<string> menu,int posx, int posy)
+        {
+            foreach(string texto in menu)
+            {
+                Console.SetCursorPosition(posx,posy);
+                Console.Write(texto);
+                posy++;
+            }
         }
     }
 }

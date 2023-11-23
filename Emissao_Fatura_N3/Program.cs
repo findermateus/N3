@@ -13,6 +13,7 @@ menu.Add("Opcao: ");
 
 while (true)
 {
+    Console.Clear();
     int posy = 1;   
     CRUD.EscreveMenuOp(menu, posy,"Fatura");
     var op = Console.ReadLine();
@@ -24,42 +25,68 @@ while (true)
             var rodando = true;
             while (rodando)
             {
+                
                 List<string> opcoes = new List<string>();
                 opcoes.Add("[1] Cliente pessoa fisica  ");
                 opcoes.Add("[2] Cliente pessoa juridica");
                 opcoes.Add("[3] Sair                   ");
                 opcoes.Add("Opcao: ");
+
                 CRUD.EscreveMenuOp(opcoes, posy,"Cliente");
                
                 op = Console.ReadLine();
                 if (op == "1" || op == "2")
                 {
                     //PEGANDO INFORMACOES BASICAS
+                    List<string> dados = new List<string>();
                     Console.Clear();
-                    Console.WriteLine("Digite as informacoes do cliente: ");
-                    Console.Write("\nNome: ");
+
+                    dados.Add("Nome: ");
+                    dados.Add("Telefone: ");
+                    dados.Add("CEP: ");
+                    dados.Add("Estado: ");
+                    dados.Add("Cidade: ");
+                    dados.Add("Bairro: ");
+                    dados.Add("Rua: ");
+                    dados.Add("Complemento: ");
+                    
+                    Tela.DesenhaBorda(0,0,79,24,"Cliente");
+                    CRUD.EscreveMenu(dados,1,1);
+
+                    //PEGO OS DADOS
+                    int i = 0;
+                    Console.SetCursorPosition(dados[i].Length+1,i+1);
+                    i++;
                     var nome = Console.ReadLine();
-                    Console.Write("Telefone: ");
+                    Console.SetCursorPosition(dados[i].Length + 1, i + 1);
+                    i++;
                     var telefone = Console.ReadLine();
-                    Console.Write("CEP: ");
+                    Console.SetCursorPosition(dados[i].Length + 1, i + 1);
+                    i++;
                     var cep = Console.ReadLine();
-                    Console.Write("Estado: ");
+                    Console.SetCursorPosition(dados[i].Length + 1, i + 1);
+                    i++;
                     var estado = Console.ReadLine();
-                    Console.Write("Cidade: ");
+                    Console.SetCursorPosition(dados[i].Length + 1, i + 1);
+                    i++;
                     var cidade = Console.ReadLine();
-                    Console.Write("Bairro: ");
+                    Console.SetCursorPosition(dados[i].Length + 1, i + 1);
+                    i++;
                     var bairro = Console.ReadLine();
-                    Console.Write("Rua: ");
+                    Console.SetCursorPosition(dados[i].Length + 1, i + 1);
+                    i++;
                     var rua = Console.ReadLine();
-                    Console.Write("Complemento: ");
+                    Console.SetCursorPosition(dados[i].Length + 1, i + 1);
                     var complemento = Console.ReadLine();
-                    
                     //CHECA SE É PESSOA FISICA
-                    
+
                     if (op == "1")
                     {
+                        Console.SetCursorPosition(1, i + 2);
                         Console.Write("CPF: "); var cpf = Console.ReadLine();
-                        Console.WriteLine("Confirma: [1] Sim - [2] Nao");
+                        
+                        dados.Add("Confirma: [1] Sim - [2] Nao");
+                        
                         op = Console.ReadLine();
                         if (op == "1")
                         {
@@ -79,9 +106,9 @@ while (true)
                     }
                     else
                     {
-                    //PESSOA JURIDICA
-                        Console.Write("CNPJ: "); 
-                        var cnpj = Console.ReadLine();
+                        //PESSOA JURIDICA
+                        Console.SetCursorPosition(1, i + 2);
+                        Console.Write("CNPJ: "); var cnpj = Console.ReadLine();
                         Console.WriteLine("Confirma: [1] Sim - [2] Nao");
                         op = Console.ReadLine();
                         if (op == "1")
@@ -135,12 +162,12 @@ while (true)
                     if (i >= 1 && i <= 5)
                     {
                         Console.Clear();
-                        Console.WriteLine(ServicoDesc.descricao[i - 1]);
-                        Console.WriteLine("Valor total: " + ServicoDesc.valor[i - 1]);
-                        Console.WriteLine("Porcentagem do ICMS: " + ServicoDesc.icms[i - 1] + "%");
-
-                        Console.WriteLine("-----------------------------");
-                        Console.WriteLine("Confirma: [1] Sim - [2] Nao");
+                        List<string> valores = new List<string>();
+                        valores.Add(ServicoDesc.descricao[i - 1]+"         ");
+                        valores.Add("Valor total: " + ServicoDesc.valor[i - 1]);
+                        valores.Add("Porcentagem do ICMS: " + ServicoDesc.icms[i - 1] + "%");
+                        valores.Add("Confirma: [1] Sim - [2] Nao: ");
+                        CRUD.EscreveMenuOp(valores,posy,"Valores");
                         op = Console.ReadLine();
                         if (op == "1")
                         {
