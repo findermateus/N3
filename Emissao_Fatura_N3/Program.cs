@@ -268,7 +268,7 @@ while (true)
             op = Console.ReadLine();
             var rodar = true;
             while (rodar) {
-                if (op != "1" && op != "2") { break;}
+                if (op != "1" && op != "2") { rodar = false;  break;}
                 List<string> opcoes = new List<string>();
                 opcoes.Add("Digite o nome do Cliente ou o codigo identificador: ");
                 opcoes.Add("Identificacao: ");
@@ -317,6 +317,7 @@ while (true)
                 Console.Clear();
                 fatura.EmitirFatura(servicos);
                 Console.ReadKey();
+                break;
             }
             break;
     }
