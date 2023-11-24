@@ -296,6 +296,7 @@ while (true)
                             dados.Add(dadinhos[i+2] + sistema.clientesFisicos[i].tel);
                             dados.Add(dadinhos[i+3] + sistema.clientesFisicos[i].codigoIdentificador);
                             servicos = sistema.clientesFisicos[i].servicos;
+                            fatura.AddEndereco(sistema.clientesFisicos[i].end);
                             achou = true;
                         }
                     }
@@ -306,11 +307,12 @@ while (true)
                     {
                         if (conferencia == sistema.clientesJuridicos[i].nome.ToUpper() || conferencia == sistema.clientesJuridicos[i].codigoIdentificador.ToUpper())
                         {
-                            dados.Add(sistema.clientesJuridicos[i].nome);
-                            dados.Add(sistema.clientesJuridicos[i].cnpj);
-                            dados.Add(sistema.clientesJuridicos[i].tel);
-                            dados.Add(sistema.clientesJuridicos[i].codigoIdentificador);
+                            dados.Add(dadinhos[i]+sistema.clientesJuridicos[i].nome);
+                            dados.Add(dadinhos[i+1]+sistema.clientesJuridicos[i].cnpj);
+                            dados.Add(dadinhos[i+2]+sistema.clientesJuridicos[i].tel);
+                            dados.Add(dadinhos[i+3]+sistema.clientesJuridicos[i].codigoIdentificador);
                             servicos = sistema.clientesJuridicos[i].servicos;
+                            fatura.AddEndereco(sistema.clientesJuridicos[i].end);
                             achou = true;
                         }
                     }

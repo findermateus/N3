@@ -20,5 +20,14 @@ namespace Emissao_Fatura_N3
             this.Cep = Cep;
             this.Complemento = Complemento;
         }
+        public List<string> Dados()
+        {
+            List<string> dados = new List<string>();
+            dados.Add("Estado: " + Estado);
+            dados.Add("Cidade: " + Cidade);
+            dados.Add("Cep: " + Cep);
+            dados.Add("Complemento: " + Complemento);
+            return dados;
+        }
     }
 }
