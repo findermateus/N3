@@ -26,7 +26,7 @@ namespace Emissao_Fatura_N3
             double total = 0.0;
             foreach(Servico servico in servicos)
             {
-                total += servico.valor;
+                total += servico.valor + ((servico.icms/100)*servico.valor);
             }
             return total;
         }
@@ -37,9 +37,11 @@ namespace Emissao_Fatura_N3
             List<string> lista = new List<string>();
             foreach(Servico servico in servicos)
             {
-                lista.Add(servico.tipo + ": R$" + servico.valor);
+                lista.Add(servico.tipo + ": R$" + servico.valor + " + ICMS: %"+servico.icms);
             }
+            lista.Add("Valor total: " + CalcutaTotal(servicos).ToString());
             CRUD.EscreveMenu(lista,1,this.Dados.Count+1);
+            
         }
     }
 }

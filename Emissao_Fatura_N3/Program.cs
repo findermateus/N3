@@ -284,6 +284,7 @@ while (true)
                 dadinhos.Add("Telefone: ");
                 dadinhos.Add("Codigo Identificador: ");
                 dadinhos.Add("Servicos Prestados");
+                var achou = false;
                 if (op == "1")
                 {
                     for (int i = 0; i < sistema.clientesFisicos.Count; i++)
@@ -295,12 +296,13 @@ while (true)
                             dados.Add(dadinhos[i+2] + sistema.clientesFisicos[i].tel);
                             dados.Add(dadinhos[i+3] + sistema.clientesFisicos[i].codigoIdentificador);
                             servicos = sistema.clientesFisicos[i].servicos;
+                            achou = true;
                         }
                     }
                 }
                 if (op == "2")
                 {
-                    for (int i = 0; i < sistema.clientesFisicos.Count; i++)
+                    for (int i = 0; i < sistema.clientesJuridicos.Count; i++)
                     {
                         if (conferencia == sistema.clientesJuridicos[i].nome.ToUpper() || conferencia == sistema.clientesJuridicos[i].codigoIdentificador.ToUpper())
                         {
@@ -309,15 +311,25 @@ while (true)
                             dados.Add(sistema.clientesJuridicos[i].tel);
                             dados.Add(sistema.clientesJuridicos[i].codigoIdentificador);
                             servicos = sistema.clientesJuridicos[i].servicos;
+                            achou = true;
                         }
                     }
 
                 }
-                fatura.AddDados(dados);
-                Console.Clear();
-                fatura.EmitirFatura(servicos);
-                Console.ReadKey();
-                break;
+                if (achou)
+                {
+                    fatura.AddDados(dados);
+                    Console.Clear();
+                    fatura.EmitirFatura(servicos);
+                    Console.ReadKey();
+                    break;
+                }
+                else
+                {
+                    Console.SetCursorPosition(1, 8);
+                    Console.WriteLine("Cliente nao encontrado!");
+                    Console.ReadKey(); break;
+                }
             }
             break;
     }
