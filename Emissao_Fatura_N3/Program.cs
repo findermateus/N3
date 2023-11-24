@@ -17,7 +17,7 @@ while (true)
 {
     Console.Clear();
     int posy = 1;   
-    CRUD.EscreveMenuOp(menu, posy,"Fatura");
+    Tela.EscreveMenuOp(menu, posy,"Fatura");
     var op = Console.ReadLine();
     switch (op)
     {
@@ -34,7 +34,7 @@ while (true)
                 opcoes.Add("[3] Sair                   ");
                 opcoes.Add("Opcao: ");
 
-                CRUD.EscreveMenuOp(opcoes, posy,"Cliente");
+                Tela.EscreveMenuOp(opcoes, posy,"Cliente");
                
                 op = Console.ReadLine();
                 if (op == "1" || op == "2")
@@ -53,7 +53,7 @@ while (true)
                     dados.Add("Complemento: ");
                     
                     Tela.DesenhaBorda(0,0,79,24,"Dados do Cliente");
-                    CRUD.EscreveMenu(dados,1,1);
+                    Tela.EscreveMenu(dados,1,1);
 
                     //PEGO OS DADOS
                     int i = 0;
@@ -152,7 +152,7 @@ while (true)
             movimentacoes.Add("[1] - Adicionar servico contratado a cliente");
             movimentacoes.Add("Opcao: ");
             posy = 1;
-            CRUD.EscreveMenuOp(movimentacoes,posy,"Movimentacoes");
+            Tela.EscreveMenuOp(movimentacoes,posy,"Movimentacoes");
             op = Console.ReadLine();
             switch (op)
             {
@@ -167,7 +167,7 @@ while (true)
                     }
                     tipos.Add("["+(indice+1)+"]Sair");
                     tipos.Add("Opcao: ");
-                    CRUD.EscreveMenuOp(tipos,posy,"Tipo");
+                    Tela.EscreveMenuOp(tipos,posy,"Tipo");
                     op = Console.ReadLine();
                     int i = Convert.ToInt32(op);
                     if (i >= 1 && i <= 5)
@@ -178,7 +178,7 @@ while (true)
                         valores.Add("Valor total: " + ServicoDesc.valor[i - 1]);
                         valores.Add("Porcentagem do ICMS: " + ServicoDesc.icms[i - 1] + "%");
                         valores.Add("Confirma: [1] Sim - [2] Nao: ");
-                        CRUD.EscreveMenuOp(valores,posy,"Valores");
+                        Tela.EscreveMenuOp(valores,posy,"Valores");
                         op = Console.ReadLine();
                         if (op == "1")
                         {
@@ -193,7 +193,7 @@ while (true)
                                 opcoes.Add("[3] Sair                   ");
                                 opcoes.Add("Opcao: ");
 
-                                CRUD.EscreveMenu(opcoes,1,1);
+                                Tela.EscreveMenu(opcoes,1,1);
                                 Tela.DesenhaBorda(0,0,79,12,"Cliente");
                                 posy = 4;
                                 Console.SetCursorPosition(8,posy); posy++;
@@ -264,7 +264,7 @@ while (true)
             opcao.Add("[3] Sair");
             opcao.Add("Opcao: ");
             Tela.DesenhaBorda(0, 0, 79, 24, "Cliente");
-            CRUD.EscreveMenu(opcao,1,1);
+            Tela.EscreveMenu(opcao,1,1);
             op = Console.ReadLine();
             var rodar = true;
             while (rodar) {
@@ -272,7 +272,7 @@ while (true)
                 List<string> opcoes = new List<string>();
                 opcoes.Add("Digite o nome do Cliente ou o codigo identificador: ");
                 opcoes.Add("Identificacao: ");
-                CRUD.EscreveMenu(opcoes,1,opcao.Count);
+                Tela.EscreveMenu(opcoes,1,opcao.Count);
                 var conferencia = Console.ReadLine();
                 conferencia = conferencia.ToUpper();
                 List<string> dados = new List<string>();

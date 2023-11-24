@@ -33,16 +33,15 @@ namespace Emissao_Fatura_N3
         public void EmitirFatura(List<Servico> servicos)
         {
             Tela.DesenhaBorda(0,0,79,24,"Fatura");
-            CRUD.EscreveMenu(this.Dados,1,1);
-            CRUD.EscreveMenu(EnderecoCliente.Dados(),1, this.Dados.Count + 1);
+            Tela.EscreveMenu(this.Dados,1,1);
+            Tela.EscreveMenu(EnderecoCliente.Dados(),1, this.Dados.Count + 1);
             List<string> lista = new List<string>();
             foreach(Servico servico in servicos)
             {
                 lista.Add(servico.tipo + ": R$" + servico.valor + " + ICMS: %"+servico.icms);
             }
             lista.Add("Valor total: " + CalcutaTotal(servicos).ToString());
-            CRUD.EscreveMenu(lista,1,(this.Dados.Count+1)+(EnderecoCliente.Dados().Count+1));
-            
+            Tela.EscreveMenu(lista,1,(this.Dados.Count+1)+(EnderecoCliente.Dados().Count+1));
         }
     }
 }
