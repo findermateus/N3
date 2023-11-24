@@ -16,8 +16,8 @@ menu.Add("Opcao: ");
 while (true)
 {
     Console.Clear();
-    int posy = 1;   
-    Tela.EscreveMenuOp(menu, posy,"Fatura");
+    int posy = 1;
+    Tela.EscreveMenuOp(menu, posy, "Fatura");
     var op = Console.ReadLine();
     switch (op)
     {
@@ -34,15 +34,15 @@ while (true)
                 opcoes.Add("[3] Sair                   ");
                 opcoes.Add("Opcao: ");
 
-                Tela.EscreveMenuOp(opcoes, posy,"Cliente");
-               
+                Tela.EscreveMenuOp(opcoes, posy, "Cliente");
+
                 op = Console.ReadLine();
                 if (op == "1" || op == "2")
                 {
                     //PEGANDO INFORMACOES BASICAS
                     List<string> dados = new List<string>();
                     Console.Clear();
-                      
+
                     dados.Add("Nome: ");
                     dados.Add("Telefone: ");
                     dados.Add("CEP: ");
@@ -51,13 +51,13 @@ while (true)
                     dados.Add("Bairro: ");
                     dados.Add("Rua: ");
                     dados.Add("Complemento: ");
-                    
-                    Tela.DesenhaBorda(0,0,79,24,"Dados do Cliente");
-                    Tela.EscreveMenu(dados,1,1);
+
+                    Tela.DesenhaBorda(0, 0, 79, 24, "Dados do Cliente");
+                    Tela.EscreveMenu(dados, 1, 1);
 
                     //PEGO OS DADOS
                     int i = 0;
-                    Console.SetCursorPosition(dados[i].Length+1,i+1);
+                    Console.SetCursorPosition(dados[i].Length + 1, i + 1);
                     i++;
                     var nome = Console.ReadLine();
                     Console.SetCursorPosition(dados[i].Length + 1, i + 1);
@@ -91,11 +91,11 @@ while (true)
                         op = Console.ReadLine();
                         if (op == "1")
                         {
-                                var codigoIdentificador = Guid.NewGuid().ToString();
-                                Console.SetCursorPosition(1, i + pos); pos++;
-                                Console.Write("Codigo identificador do cliente: ");
-                                Console.WriteLine(codigoIdentificador);
-                                
+                            var codigoIdentificador = Guid.NewGuid().ToString();
+                            Console.SetCursorPosition(1, i + pos); pos++;
+                            Console.Write("Codigo identificador do cliente: ");
+                            Console.WriteLine(codigoIdentificador);
+
                             Endereco endereco = new Endereco(estado, cidade, cep, complemento);
                             ClienteFisico clienteFisico = new ClienteFisico(cpf, telefone, endereco, codigoIdentificador, nome);
                             sistema.clientesFisicos.Add(clienteFisico);
@@ -120,7 +120,7 @@ while (true)
                             Console.SetCursorPosition(1, i + pos); pos++;
                             Console.Write("Codigo identificador do cliente: ");
                             Console.WriteLine(codigoIdentificador);
-                             
+
                             Endereco endereco = new Endereco(estado, cidade, cep, complemento);
                             ClienteJuridico clienteJuridico = new ClienteJuridico(cnpj, telefone, endereco, codigoIdentificador, nome);
                             sistema.clientesJuridicos.Add(clienteJuridico);
@@ -131,8 +131,9 @@ while (true)
                             rodando = false;
                         }
                     }
-                       
-                }else if (op == "3")
+
+                }
+                else if (op == "3")
                 {
                     break;
                 }
@@ -149,42 +150,43 @@ while (true)
         case "2":
             Console.Clear();
             List<string> movimentacoes = new List<string>();
-            movimentacoes.Add("[1] - Adicionar servico contratado a cliente");
+            movimentacoes.Add("[1] Adicionar servico contratado a cliente");
+            movimentacoes.Add("[2] Sair");
             movimentacoes.Add("Opcao: ");
             posy = 1;
-            Tela.EscreveMenuOp(movimentacoes,posy,"Movimentacoes");
+            Tela.EscreveMenuOp(movimentacoes, posy, "Movimentacoes");
             op = Console.ReadLine();
             switch (op)
             {
                 case "1":
-                    List <string> tipos = new List<string>();
+                    List<string> tipos = new List<string>();
                     Console.Clear();
                     int indice = 0;
-                    foreach(string tipo in ServicoDesc.tipos)
+                    foreach (string tipo in ServicoDesc.tipos)
                     {
-                        tipos.Add("["+Convert.ToString(indice+1)+"]" + ServicoDesc.tipos[indice]+"  ");
+                        tipos.Add("[" + Convert.ToString(indice + 1) + "]" + ServicoDesc.tipos[indice] + "  ");
                         indice++;
                     }
-                    tipos.Add("["+(indice+1)+"]Sair");
+                    tipos.Add("[" + (indice + 1) + "]Sair");
                     tipos.Add("Opcao: ");
-                    Tela.EscreveMenuOp(tipos,posy,"Tipo");
+                    Tela.EscreveMenuOp(tipos, posy, "Tipo");
                     op = Console.ReadLine();
                     int i = Convert.ToInt32(op);
                     if (i >= 1 && i <= 5)
                     {
                         Console.Clear();
                         List<string> valores = new List<string>();
-                        valores.Add(ServicoDesc.descricao[i - 1]+"         ");
+                        valores.Add(ServicoDesc.descricao[i - 1] + "         ");
                         valores.Add("Valor total: " + ServicoDesc.valor[i - 1]);
                         valores.Add("Porcentagem do ICMS: " + ServicoDesc.icms[i - 1] + "%");
                         valores.Add("Confirma: [1] Sim - [2] Nao: ");
-                        Tela.EscreveMenuOp(valores,posy,"Valores");
+                        Tela.EscreveMenuOp(valores, posy, "Valores");
                         op = Console.ReadLine();
                         if (op == "1")
                         {
                             Servico servico = new Servico(i);
                             rodando = true;
-                            while(rodando)
+                            while (rodando)
                             {
                                 Console.Clear();
                                 List<string> opcoes = new List<string>();
@@ -193,67 +195,79 @@ while (true)
                                 opcoes.Add("[3] Sair                   ");
                                 opcoes.Add("Opcao: ");
 
-                                Tela.EscreveMenu(opcoes,1,1);
-                                Tela.DesenhaBorda(0,0,79,12,"Cliente");
+                                Tela.EscreveMenu(opcoes, 1, 1);
+                                Tela.DesenhaBorda(0, 0, 79, 12, "Cliente");
                                 posy = 4;
-                                Console.SetCursorPosition(8,posy); posy++;
+                                Console.SetCursorPosition(8, posy); posy++;
                                 op = Console.ReadLine();
-                                var achou = false;
-                                Console.SetCursorPosition(1,posy);posy++;
-                                Console.WriteLine("Digite o nome ou codigo de identificacao do cliente:");
-                                Console.SetCursorPosition(1, posy); posy++;
-                                var conferencia = Console.ReadLine();
-                                conferencia = conferencia.ToUpper();
-                                if (op == "1")
+                                if (op == "1" || op == "2")
                                 {
-                                    foreach(ClienteFisico cliente in sistema.clientesFisicos)
+
+                                    var achou = false;
+                                    Console.SetCursorPosition(1, posy); posy++;
+                                    Console.WriteLine("Digite o nome ou codigo de identificacao do cliente:");
+                                    Console.SetCursorPosition(1, posy); posy++;
+                                    var conferencia = Console.ReadLine();
+                                    conferencia = conferencia.ToUpper();
+                                    if (op == "1")
                                     {
-                                        if (conferencia == cliente.nome.ToUpper() || conferencia == cliente.codigoIdentificador.ToUpper())
+                                        foreach (ClienteFisico cliente in sistema.clientesFisicos)
                                         {
-                                            achou = true;
-                                            cliente.servicos.Add(servico);
-                                            break;
+                                            if (conferencia == cliente.nome.ToUpper() || conferencia == cliente.codigoIdentificador.ToUpper())
+                                            {
+                                                achou = true;
+                                                cliente.servicos.Add(servico);
+                                                break;
+                                            }
                                         }
                                     }
-                                }else if(op == "2")
-                                {
-                                    foreach (ClienteJuridico cliente in sistema.clientesJuridicos)
+                                    else if (op == "2")
                                     {
-                                        if (conferencia == cliente.nome.ToUpper() || conferencia == cliente.codigoIdentificador.ToUpper())
+                                        foreach (ClienteJuridico cliente in sistema.clientesJuridicos)
                                         {
-                                            achou = true;
-                                            cliente.servicos.Add(servico);
-                                            break;
+                                            if (conferencia == cliente.nome.ToUpper() || conferencia == cliente.codigoIdentificador.ToUpper())
+                                            {
+                                                achou = true;
+                                                cliente.servicos.Add(servico);
+                                                break;
+                                            }
                                         }
+
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine("Digite uma opcao valida!");
+                                        Console.ReadKey();
+                                    }
+                                    if (!achou)
+                                    {
+                                        Console.SetCursorPosition(1, posy); posy++;
+                                        Console.WriteLine("Cliente nao encontrado!");
+                                        Console.ReadKey();
+                                        Console.Clear();
+                                        break;
+                                    }
+                                    else
+                                    {
+                                        Console.SetCursorPosition(1, posy); posy++;
+                                        Console.WriteLine("Servico adicionado com sucesso!");
+                                        Console.ReadKey();
+                                        Console.Clear();
+                                        break;
                                     }
                                 }
-                                else { Console.WriteLine("Digite uma opcao valida!");
-                                    Console.ReadKey();
-                                }
-                                if (!achou)
-                                {
-                                    Console.SetCursorPosition(1, posy); posy++;
-                                    Console.WriteLine("Cliente nao encontrado!");
-                                    Console.ReadKey();
-                                    Console.Clear();
-                                    break;
-                                }
-                                else
-                                {
-                                    Console.SetCursorPosition(1, posy); posy++;
-                                    Console.WriteLine("Servico adicionado com sucesso!");
-                                    Console.ReadKey();
-                                    Console.Clear();
-                                    break;
-                                }
+                                else { break; }
                             }
+
                         }
                     }
-                    else 
-                    { 
+                    else
+                    {
                         Console.Clear();
                     }
-                    break;    
+                    break;
+                default:
+                    break;
             }
             break;
         case "3":
@@ -264,15 +278,16 @@ while (true)
             opcao.Add("[3] Sair");
             opcao.Add("Opcao: ");
             Tela.DesenhaBorda(0, 0, 79, 24, "Cliente");
-            Tela.EscreveMenu(opcao,1,1);
+            Tela.EscreveMenu(opcao, 1, 1);
             op = Console.ReadLine();
             var rodar = true;
-            while (rodar) {
-                if (op != "1" && op != "2") { rodar = false;  break;}
+            while (rodar)
+            {
+                if (op != "1" && op != "2") { rodar = false; break; }
                 List<string> opcoes = new List<string>();
                 opcoes.Add("Digite o nome do Cliente ou o codigo identificador: ");
                 opcoes.Add("Identificacao: ");
-                Tela.EscreveMenu(opcoes,1,opcao.Count);
+                Tela.EscreveMenu(opcoes, 1, opcao.Count);
                 var conferencia = Console.ReadLine();
                 conferencia = conferencia.ToUpper();
                 List<string> dados = new List<string>();
@@ -292,9 +307,9 @@ while (true)
                         if (conferencia == sistema.clientesFisicos[i].nome.ToUpper() || conferencia == sistema.clientesFisicos[i].codigoIdentificador.ToUpper())
                         {
                             dados.Add(dadinhos[i] + sistema.clientesFisicos[i].nome);
-                            dados.Add(dadinhos[i+1] + sistema.clientesFisicos[i].cpf);
-                            dados.Add(dadinhos[i+2] + sistema.clientesFisicos[i].tel);
-                            dados.Add(dadinhos[i+3] + sistema.clientesFisicos[i].codigoIdentificador);
+                            dados.Add(dadinhos[i + 1] + sistema.clientesFisicos[i].cpf);
+                            dados.Add(dadinhos[i + 2] + sistema.clientesFisicos[i].tel);
+                            dados.Add(dadinhos[i + 3] + sistema.clientesFisicos[i].codigoIdentificador);
                             servicos = sistema.clientesFisicos[i].servicos;
                             fatura.AddEndereco(sistema.clientesFisicos[i].end);
                             achou = true;
@@ -307,10 +322,10 @@ while (true)
                     {
                         if (conferencia == sistema.clientesJuridicos[i].nome.ToUpper() || conferencia == sistema.clientesJuridicos[i].codigoIdentificador.ToUpper())
                         {
-                            dados.Add(dadinhos[i]+sistema.clientesJuridicos[i].nome);
-                            dados.Add(dadinhos[i+1]+sistema.clientesJuridicos[i].cnpj);
-                            dados.Add(dadinhos[i+2]+sistema.clientesJuridicos[i].tel);
-                            dados.Add(dadinhos[i+3]+sistema.clientesJuridicos[i].codigoIdentificador);
+                            dados.Add(dadinhos[i] + sistema.clientesJuridicos[i].nome);
+                            dados.Add(dadinhos[i + 1] + sistema.clientesJuridicos[i].cnpj);
+                            dados.Add(dadinhos[i + 2] + sistema.clientesJuridicos[i].tel);
+                            dados.Add(dadinhos[i + 3] + sistema.clientesJuridicos[i].codigoIdentificador);
                             servicos = sistema.clientesJuridicos[i].servicos;
                             fatura.AddEndereco(sistema.clientesJuridicos[i].end);
                             achou = true;

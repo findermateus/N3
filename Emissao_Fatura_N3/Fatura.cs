@@ -13,9 +13,9 @@ namespace Emissao_Fatura_N3
         private Endereco EnderecoCliente;
         
         public List<string> dados { get => this.dados; }
-        public void AddDados(List<string> Dados)
+        public void AddDados(List<string> dados)
         {
-            this.Dados = Dados;
+            this.Dados = dados;
         }
         public void AddEndereco(Endereco endereco)
         {
