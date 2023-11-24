@@ -22,11 +22,11 @@ while (true)
     {
         //ADICIONAR CLIENTE
         case "1":
-            Console.Clear();
+
             var rodando = true;
             while (rodando)
             {
-                
+                Console.Clear();
                 List<string> opcoes = new List<string>();
                 opcoes.Add("[1] Cliente pessoa fisica  ");
                 opcoes.Add("[2] Cliente pessoa juridica");
@@ -147,19 +147,26 @@ while (true)
         //movimentacoes
         case "2":
             Console.Clear();
-            Console.WriteLine("[1] - Adicionar servico contratado a cliente");
+            List<string> movimentacoes = new List<string>();
+            movimentacoes.Add("[1] - Adicionar servico contratado a cliente");
+            movimentacoes.Add("Opcao: ");
+            posy = 1;
+            CRUD.EscreveMenuOp(movimentacoes,posy,"Movimentacoes");
             op = Console.ReadLine();
             switch (op)
             {
                 case "1":
+                    List <string> tipos = new List<string>();
                     Console.Clear();
                     int indice = 0;
                     foreach(string tipo in ServicoDesc.tipos)
                     {
-                        Console.WriteLine("["+Convert.ToString(indice+1)+"]" + ServicoDesc.tipos[indice]);
+                        tipos.Add("["+Convert.ToString(indice+1)+"]" + ServicoDesc.tipos[indice]+"  ");
                         indice++;
                     }
-                    Console.WriteLine("["+(indice+1)+"] Sair");
+                    tipos.Add("["+(indice+1)+"]Sair");
+                    tipos.Add("Opcao: ");
+                    CRUD.EscreveMenuOp(tipos,posy,"Tipo");
                     op = Console.ReadLine();
                     int i = Convert.ToInt32(op);
                     if (i >= 1 && i <= 5)
