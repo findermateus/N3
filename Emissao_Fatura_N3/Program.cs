@@ -1,6 +1,7 @@
 ﻿using Emissao_Fatura_N3;
 using Emissao_Fatura_N3.Pessoas;
 using Emissao_Fatura_N3.Sistema;
+using System.Runtime.CompilerServices;
 using System.Security.Cryptography;
 
 Sistema sistema = new Sistema();
@@ -41,7 +42,7 @@ while (true)
                     //PEGANDO INFORMACOES BASICAS
                     List<string> dados = new List<string>();
                     Console.Clear();
-
+                      
                     dados.Add("Nome: ");
                     dados.Add("Telefone: ");
                     dados.Add("CEP: ");
@@ -257,78 +258,65 @@ while (true)
             break;
         case "3":
             Console.Clear();
-            Console.WriteLine("[1] Cliente pessoa fisica");
-            Console.WriteLine("[2] Cliente pessoa juridica");
-            Console.WriteLine("[3] Sair");
+            List<string> opcao = new List<string>();
+            opcao.Add("[1] Cliente pessoa fisica");
+            opcao.Add("[2] Cliente pessoa juridica");
+            opcao.Add("[3] Sair");
+            opcao.Add("Opcao: ");
+            Tela.DesenhaBorda(0, 0, 79, 24, "Cliente");
+            CRUD.EscreveMenu(opcao,1,1);
             op = Console.ReadLine();
             var rodar = true;
             while (rodar) {
-                Console.Write("\nDigite o nome ou codigo identificador do cliente: ");
-                var id = Console.ReadLine();
-                var achou = false;
-                Fatura fatura = new Fatura();
-                List<Servico> servicos = new List<Servico>();
+                if (op != "1" && op != "2") { break;}
+                List<string> opcoes = new List<string>();
+                opcoes.Add("Digite o nome do Cliente ou o codigo identificador: ");
+                opcoes.Add("Identificacao: ");
+                CRUD.EscreveMenu(opcoes,1,opcao.Count);
+                var conferencia = Console.ReadLine();
+                conferencia = conferencia.ToUpper();
                 List<string> dados = new List<string>();
-                //string cep, rua, comp, cidade, estado;
-                switch (op)
+                List<Servico> servicos = new List<Servico>();
+                Fatura fatura = new Fatura();
+                List<string> dadinhos = new List<string>();
+                dadinhos.Add("Nome: ");
+                dadinhos.Add("CPF/CNPJ: ");
+                dadinhos.Add("Telefone: ");
+                dadinhos.Add("Codigo Identificador: ");
+                dadinhos.Add("Servicos Prestados");
+                if (op == "1")
                 {
-                    case "1":
-
-                        foreach(ClienteFisico cliente in sistema.clientesFisicos)
+                    for (int i = 0; i < sistema.clientesFisicos.Count; i++)
+                    {
+                        if (conferencia == sistema.clientesFisicos[i].nome.ToUpper() || conferencia == sistema.clientesFisicos[i].codigoIdentificador.ToUpper())
                         {
-                            if (cliente.nome == id || cliente.codigoIdentificador == id)
-                            {
-                                dados.Add(cliente.nome);
-                                dados.Add(cliente.cpf);
-                                dados.Add(cliente.codigoIdentificador);
-                                foreach(Servico servico in cliente.servicos)
-                                {
-                                    servicos.Add(servico);
-                                }
-                                achou = true;
-                            }
+                            dados.Add(dadinhos[i] + sistema.clientesFisicos[i].nome);
+                            dados.Add(dadinhos[i+1] + sistema.clientesFisicos[i].cpf);
+                            dados.Add(dadinhos[i+2] + sistema.clientesFisicos[i].tel);
+                            dados.Add(dadinhos[i+3] + sistema.clientesFisicos[i].codigoIdentificador);
+                            servicos = sistema.clientesFisicos[i].servicos;
                         }
-                        break;
-                    case "2":
-                        foreach (ClienteJuridico cliente in sistema.clientesJuridicos)
-                        {
-                            if (cliente.nome == id || cliente.codigoIdentificador == id)
-                            {
-                                dados.Add(cliente.nome);
-                                dados.Add(cliente.cnpj);
-                                dados.Add(cliente.codigoIdentificador);
-                                foreach (Servico servico in cliente.servicos)
-                                {
-                                    servicos.Add(servico);
-                                }
-                                achou = true;
-                            }
-                        }
-                        break;
-                    case "3":
-                        rodar = false;
-                        Console.Clear();
-                        break;
-                    default:
-                        Console.WriteLine("Digite uma opcao valida!");
-                        Console.ReadKey();
-                    break;
+                    }
                 }
-                if (!achou)
+                if (op == "2")
                 {
-                    Console.WriteLine("Cliente nao encontrado!");
-                    Console.ReadKey();
-                    Console.Clear();
-                    break;
+                    for (int i = 0; i < sistema.clientesFisicos.Count; i++)
+                    {
+                        if (conferencia == sistema.clientesJuridicos[i].nome.ToUpper() || conferencia == sistema.clientesJuridicos[i].codigoIdentificador.ToUpper())
+                        {
+                            dados.Add(sistema.clientesJuridicos[i].nome);
+                            dados.Add(sistema.clientesJuridicos[i].cnpj);
+                            dados.Add(sistema.clientesJuridicos[i].tel);
+                            dados.Add(sistema.clientesJuridicos[i].codigoIdentificador);
+                            servicos = sistema.clientesJuridicos[i].servicos;
+                        }
+                    }
+
                 }
                 fatura.AddDados(dados);
                 Console.Clear();
-                Tela.DesenhaBorda(0,0,79,24,"Fatura");
-                dados.Add("Valor total: R$"+fatura.CalcutaTotal(servicos));
-                CRUD.EscreveMenu(dados, 1, 1);
+                fatura.EmitirFatura(servicos);
                 Console.ReadKey();
-                Console.Clear();
-                break;
             }
             break;
     }
