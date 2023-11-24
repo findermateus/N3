@@ -186,11 +186,21 @@ while (true)
                             while(rodando)
                             {
                                 Console.Clear();
-                                Console.WriteLine("[1] Cliente pessoa fisica");
-                                Console.WriteLine("[2] Cliente pessoa juridica");
+                                List<string> opcoes = new List<string>();
+                                opcoes.Add("[1] Cliente pessoa fisica  ");
+                                opcoes.Add("[2] Cliente pessoa juridica");
+                                opcoes.Add("[3] Sair                   ");
+                                opcoes.Add("Opcao: ");
+
+                                CRUD.EscreveMenu(opcoes,1,1);
+                                Tela.DesenhaBorda(0,0,79,12,"Cliente");
+                                posy = 4;
+                                Console.SetCursorPosition(8,posy); posy++;
                                 op = Console.ReadLine();
                                 var achou = false;
+                                Console.SetCursorPosition(1,posy);posy++;
                                 Console.WriteLine("Digite o nome ou codigo de identificacao do cliente:");
+                                Console.SetCursorPosition(1, posy); posy++;
                                 var conferencia = Console.ReadLine();
                                 conferencia = conferencia.ToUpper();
                                 if (op == "1")
@@ -221,6 +231,7 @@ while (true)
                                 }
                                 if (!achou)
                                 {
+                                    Console.SetCursorPosition(1, posy); posy++;
                                     Console.WriteLine("Cliente nao encontrado!");
                                     Console.ReadKey();
                                     Console.Clear();
@@ -228,6 +239,7 @@ while (true)
                                 }
                                 else
                                 {
+                                    Console.SetCursorPosition(1, posy); posy++;
                                     Console.WriteLine("Servico adicionado com sucesso!");
                                     Console.ReadKey();
                                     Console.Clear();
@@ -238,7 +250,6 @@ while (true)
                     }
                     else 
                     { 
-                        
                         Console.Clear();
                     }
                     break;    
@@ -262,7 +273,7 @@ while (true)
                 switch (op)
                 {
                     case "1":
-                        
+
                         foreach(ClienteFisico cliente in sistema.clientesFisicos)
                         {
                             if (cliente.nome == id || cliente.codigoIdentificador == id)
@@ -276,7 +287,6 @@ while (true)
                                 }
                                 achou = true;
                             }
-                            
                         }
                         break;
                     case "2":
@@ -313,14 +323,13 @@ while (true)
                 }
                 fatura.AddDados(dados);
                 Console.Clear();
-                fatura.EmitirFatura(servicos);
-                Console.WriteLine("Valor total: R$"+fatura.CalcutaTotal(servicos));
+                Tela.DesenhaBorda(0,0,79,24,"Fatura");
+                dados.Add("Valor total: R$"+fatura.CalcutaTotal(servicos));
+                CRUD.EscreveMenu(dados, 1, 1);
                 Console.ReadKey();
                 Console.Clear();
-                
                 break;
             }
             break;
-    
     }
 }

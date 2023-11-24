@@ -11,6 +11,8 @@ namespace Emissao_Fatura_N3
         //private List<Servico> servicos = new List<Servico>();
         private List<string> Dados = new List<string>();
         private Endereco EnderecoCliente;
+        
+        public List<string> dados { get => this.dados; }
         public void AddDados(List<string> Dados)
         {
             this.Dados = Dados;
@@ -34,6 +36,7 @@ namespace Emissao_Fatura_N3
             {
                 Console.WriteLine(dados);
             }
+
             foreach(Servico servico in servicos)
             {
                 Console.WriteLine(servico.tipo + ": R$" + servico.valor);
