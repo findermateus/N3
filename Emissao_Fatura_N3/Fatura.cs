@@ -11,7 +11,7 @@ namespace Emissao_Fatura_N3
         //private List<Servico> servicos = new List<Servico>();
         private List<string> Dados = new List<string>();
         private Endereco EnderecoCliente;
-        
+        private int Vencimento;
         public List<string> dados { get => this.dados; }
         public void AddDados(List<string> dados)
         {
@@ -42,6 +42,12 @@ namespace Emissao_Fatura_N3
             }
             lista.Add("Valor total: " + CalcutaTotal(servicos).ToString());
             Tela.EscreveMenu(lista,1,(this.Dados.Count+1)+(EnderecoCliente.Dados().Count+1));
+        }
+        public void CalculaVencimento(int mes)
+        {
+            int vencimento = mes + 1;
+            vencimento %= 12;
+            this.Vencimento = vencimento;
         }
     }
 }

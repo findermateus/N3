@@ -9,8 +9,9 @@ List<string> menu = new List<string>();
 menu.Add("[1] Adicionar cliente. ");
 menu.Add("[2] Movimentacoes. ");
 menu.Add("[3] Emitir fatura. ");
+menu.Add("[4] Data.          ");
 menu.Add("Opcao: ");
-
+sistema.SetaData(24,11);
 
 
 while (true)
@@ -347,6 +348,61 @@ while (true)
                     Console.WriteLine("Cliente nao encontrado!");
                     Console.ReadKey(); break;
                 }
+            }
+            break;
+        case "4":
+            
+            rodar = true;
+            while (rodar)
+            {
+                Console.Clear();
+                List<string> menus = new List<string>();
+                menus.Add("[1] Alterar data.");
+                menus.Add("[2] Sair.");
+                menus.Add("Opcao: ");
+                Tela.EscreveMenuOp(menus, 1, "Data: " + sistema.Data[0].ToString() + "/" + sistema.Data[1].ToString());
+                string option = Console.ReadLine();
+                switch(option)
+                {
+                    case "1":
+                        rodando = true;
+                        while (rodando)
+                        {
+
+                            menus.Clear();
+                            menus.Add("Dia:          ");
+                            menus.Add("Mes:          ");
+                            Console.Clear();
+                            Tela.EscreveMenuOp(menus,1,"Data");
+                            Console.SetCursorPosition(6,1);
+                            int dia = Convert.ToInt32(Console.ReadLine());
+                            Console.SetCursorPosition(6, 2);
+                            int mes = Convert.ToInt32(Console.ReadLine());
+                            if ((dia > 31 || dia < 1)|| (mes > 12 || mes < 1))
+                            {
+                                Console.WriteLine("Digite uma data valida!");
+                                Console.ReadKey();
+                            }
+                            else
+                            {
+                                sistema.SetaData(dia, mes);
+                                break;
+                            }
+                           
+                        }
+                        
+                        break;
+                        
+                    case "2":
+                        rodar = false;
+                        break;
+                    default:
+                        Console.WriteLine("Digite uma opcao valida!");
+                        Console.ReadKey();
+                        rodar = false;
+                        break;
+                }
+                
             }
             break;
     }
