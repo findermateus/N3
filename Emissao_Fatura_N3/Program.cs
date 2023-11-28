@@ -336,6 +336,7 @@ while (true)
                 }
                 if (achou)
                 {
+                    fatura.CalculaVencimento(sistema.Dia,sistema.Mes);
                     fatura.AddDados(dados);
                     Console.Clear();
                     fatura.EmitirFatura(servicos);
@@ -360,7 +361,7 @@ while (true)
                 menus.Add("[1] Alterar data.");
                 menus.Add("[2] Sair.");
                 menus.Add("Opcao: ");
-                Tela.EscreveMenuOp(menus, 1, "Data: " + sistema.Data[0].ToString() + "/" + sistema.Data[1].ToString());
+                Tela.EscreveMenuOp(menus, 1, "Data: " + sistema.Dia.ToString() + "/" + sistema.Mes.ToString());
                 string option = Console.ReadLine();
                 switch(option)
                 {
